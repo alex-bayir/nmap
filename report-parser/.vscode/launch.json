@@ -9,7 +9,7 @@
             "type": "PowerShell",
             "request": "launch",
             "script": "${file}",
-            "args": ["-data out.xml -hide_with_closed"]
+            "args": ["-data out.xml"]
         }
     ]
 }

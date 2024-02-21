@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory=$true)][string]$data,
-    [Parameter(Mandatory=$false)][switch]$hide_with_closed=$false
+    [Parameter(Mandatory=$false)][switch]$show_all=$false
 )
 
 filter opened {
@@ -16,7 +16,7 @@ $xml.nmaprun.host | ForEach-Object {
         ports   =   ($_.ports.port | opened | ForEach-Object { $_.portid }) -join ", "
     }
 } | Select-Object -Property ip,ports | Where-Object {
-    $hide_with_closed -and ($_.ports -ne '')
+    $show_all -or ($_.ports -ne '')
 } | Sort-Object {
     [System.Version]$_.ip
 } -Unique | Format-Table
