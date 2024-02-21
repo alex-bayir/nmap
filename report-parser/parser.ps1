@@ -19,5 +19,5 @@ $xml.nmaprun.host | ForEach-Object {
     $hide_with_closed -and ($_.ports -ne '')
 } | Sort-Object {
     [System.Version]$_.ip
-} | Format-Table
+} -Unique | Format-Table
 
