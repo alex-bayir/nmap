@@ -9,7 +9,7 @@
             "type": "PowerShell",
             "request": "launch",
             "script": "${file}",
-            "args": ["-data out.xml"]
+            "args": ["-path out.xml"]
         }
     ]
 }
